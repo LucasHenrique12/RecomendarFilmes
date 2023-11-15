@@ -1,5 +1,6 @@
     function searchMovies() {
-      const genre = document.getElementById('movieInput').value;
+      let genre = document.getElementById('movieInput').value;
+    genre=genre.toLowerCase();
      console.log(genre);
     if (genre === '') {
         console.log('Por favor, insira um gênero.');
