@@ -1,15 +1,20 @@
     function searchMovies() {
       let genre = document.getElementById('movieInput').value;
     genre=genre.toLowerCase();
-     console.log(genre);
+     
     if (genre === '') {
         console.log('Por favor, insira um gênero.');
         return;
       }
       var genreId= searchgenres(genre);
-      
       const apiKey = '32c07956aa06ecee35ca79f10d439001';
-      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&language=pt-BR`;
+
+      if(genreId!=0){
+    var url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&language=pt-BR`;
+      }
+      if(genreId===0){
+        var url=`https://api.themoviedb.org/3/search/movie?query=${genre}&api_key=${apiKey}&language=pt-BR`;
+      }
          
 
 
@@ -35,8 +40,6 @@
     }
 
     function searchgenres(genre){
-        var genreId;
-        
         switch(genre){
             case 'ação': case 'açao':
                 genreId=28;break;
@@ -85,6 +88,11 @@
                 
             case 'romance':
                 genreId=10749;break;
+
+            default:
+            genreId=0;break;
         }
+       
         return genreId;
+        
     }
