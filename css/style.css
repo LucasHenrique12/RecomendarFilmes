@@ -1,5 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-body {
+:root{
+  --poppins-font: 'Poppins',sans-serif;
+  --dark-color: #0a0a0a;
+  --red-color: #f64445;
+  --light-color:#fff;
+  --grey-color:#505050;
+  --yellow-color: #f2c10e;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 10px;
+
+}
+
+body{
+  font-size: 1.7rem;
+  min-height: 100vh;
+  background: var(--red-color);
+  background: -o-linear-gradient(281deg, #f64445 0%, #611cac 100%);
+  background: linear-gradient(169deg, #f64445 0%,#611cac 100%);
+  line-height: 1.6;
+  font-family: var(--poppins-font);
+  display:flex;
+  align-items: center;
+  justify-content: stretch;
+}
+
+button,input{
+  font-family: inherit;
+  font-size: 1.8rem;
+  outline: 0;
+  border: none;
+  background-color: transparent;
+}
+
+li{
+  list-style-type: none;
+}
+
+img{
+  width: 100%;
+  display: block;
+}
+
+#main{
+  max-width: 1280px;
+  width: 100%;
+margin: 0 auto;
+}
+
+#app{
+  background-color: var(--dark-color);
+  margin: 2em;
+  padding: 5rem;
+  border-radius: 6px;
+  color: #fff;
+  box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
+}
+
+#appHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#appTitle span{
+  color: var(--red-color);
+}
+.forms{
+  border: 2px solid var(--grey-color);
+  border-radius: 3rem;
+  padding: 1rem 2rem;
+  position: relative;
+}
+.forms #movieInput{
+  min-width: 420px;
+  color: #fff;
+}
+.form #movieBtn{
+  color: var(--grey-color);
+  font-size: 2.3rem;
+  cursor: pointer;
+}
+
+/* lista de pesquisa */
+
+#list{
+z-index: 10;
+position: absolute;
+top: calc(100%+1rem);
+left: 0;
+background-color: var(--light-color);
+width: 100%;
+overflow-y: scroll;
+
+}
+
+#list::-webkit-scrollbar{
+  width: 7px;
+}
+
+#list::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 6 rgba(0, 0, 0, 0.3);
+}
+
+#list::-webkit-scrollbar-thumb{
+  background-color: var(--red-color);
+  border-radius: 5px;
+}
+
+
+
+#searchListItem{
+  display: flex;
+  align-items: center;
+  background-color: var(--dark-color);
+  padding: 0.4rem 0;
+}
+
+#searchListItem img{
+width: 50px;
+margin-right: 2rem;
+
+}
+#searchListItem p {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* app body */
+#appBody{
+  margin-top: 4rem;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+#appBody::-webkit-scrollbar{
+  width: 7px;
+}
+
+#appBody::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#appBody::-webkit-scrollbar-thumb{
+  background-color: var(--red-color);
+  border-radius: 5px;
+}
+
+#appBodyInfo{
+ display: flex;
+ align-items: center;
+ justify-self: space-between;
+ border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+ border-radius: 2px;
+ padding-bottom: 1.6rem;
+ margin: 2.4rem 0;
+}
+
+.tab-head-single{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  font-weight: 500;
+  font-size: 1.9re;
+  color: #fff;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.tab-head-single:hover{
+  opacity: 0.9;
+}
+
+.tab-head-single.active-tab::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1.7rem;
+  width: 100%;
+  height: 4px;
+  background-color: var(--red-color);
+}
+
+/* conteudo */
+
+#appBodyContent{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  column-gap: 4rem;
+  margin-right: 2rem;
+}
+
+#thumbnail{
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#thumbnail img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#list img {
+  max-width: 40%;  /* Ajusta a largura para ocupar no máximo 100% do contêiner */
+  height: auto;     /* Mantém a proporção original da imagem */
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#infoBody li {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.2rem auto;
+  padding: 1.2rem;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.5);
+  max-width: 100%; /* Garante que não ultrapasse a largura do contêiner */
+  margin-left: auto; /* Centraliza o bloco */
+  margin-right: auto; /* Centraliza o bloco */
+  box-sizing: border-box;
+}
+
+#contentList .name {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 3.4rem;
+  font-weight: 500;
+  margin-top: -1.2rem;
+  max-width: 100%; /* Garante que não ultrapasse a largura do contêiner */
+  margin-left: auto; /* Centraliza o texto */
+  margin-right: auto; /* Centraliza o texto */
+}
+
+
+#contentList .name{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 3.4rem;
+  font-weight: 500;
+  margin-top: -1.2rem;
+}
+
+#appBodyInfo{
+  margin-top: 3.6rem;
+}
+
+/* #infoBody{
+  display: none;
+} */
+#infoBody li{
+display: flex;
+justify-content: space-between;
+margin:1.2rem auto ;
+padding: 1.2rem;
+box-shadow: 0 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+#infoBody li div i{
+  color: var(--red-color);
+}
+
+#infoBody li div span{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 7px;
+  padding: 0 1.2rem;
+  margin: 0 1.6rem;
+  opacity: 0.6;
+  font-size: 1.7rem;
+}
+
+#infoBody li>span{
+  color: var(--yellow-color);
+  font-weight: 700;
+}
+
+@media screen and(max-width:1200px) {
+  #appBodyContent{
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+  }
+  .tab-head-single{
+    margin: 1.5rem 0;
+  }
+}
+
+@media screen and(max-width: 1000px) {
+  #contentList .name{
+    text-align: center;
+    margin-top: 1.8rem;
+  }
+  #appBodyContent{
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+    max-width: auto;
+    margin-left: auto;
+  }
+  #thumbnail{
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and(max-width:992px) {
+  #appHeader{
+    flex-direction: column;
+  }
+  .forms{
+    margin-top: 2.8rem;
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .tab-head-single{
+    flex-direction: column;
+  }
+  .forms{
+    display: flex;
+  }
+  .forms #movieInput{
+    min-width: auto;
+    color: #fff;
+  }
+
+  #movieBtn .forms{
+    padding-left: 2rem;
+  }
+
+  #infoBody{
+    margin-right: 3rem;
+  }
+}
+
+/* abas */
+#list .search-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  background-color: var(--dark-color);
+}
+
+#list img {
+  max-width: 50px;  /* Ajusta a largura da miniatura conforme necessário */
+  height: auto;
+  border-radius: 6px;
+  margin-right: 1rem;  /* Adiciona um espaço entre a imagem e o texto */
+}
+
+#list p {
+  font-weight: 700;
+  cursor: pointer;
+  flex-grow: 1;  /* Faz com que o nome do filme ocupe o espaço disponível */
+  text-align: center;  /* Centraliza o texto */
+}
+
+#list .search-list-item img[src=""] {
+  display: none;  /* Oculta os itens sem miniatura */
+}
+
+/* OLD */
+
+/* body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 20px;
@@ -21,3 +392,7 @@ body {
 #movieList li {
   margin: 10px;
 }
+
+div{
+  border: 1px solid black;
+} */

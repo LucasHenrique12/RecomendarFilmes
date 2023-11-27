@@ -3,21 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js"></script>
+  <link rel="stylesheet" href="css/style.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
   <title>Filmes por Gênero</title>
  
 </head>
 <body>
-  <h1>Encontre Filmes por Gênero</h1>
+ 
+ <div id="main">
+   <div id="app">
+     <div id="appHeader">
+      <h2 id="appTitle">Buscar<span>Filmes</span></h2>
+      <form class="forms">
+        <input type="text" id="movieInput" placeholder="Digite o gênero" name="search">
+        <button type="submit" id="movieBtn">
+          <i class="fas-fa-search"></i>
+         </button>
+        <ul id="movieList"></ul>
+        <div id="list" class="list">
+       
+        </div>
+      </form>
+     </div>
+     <!-- fim do header -->
+
+     <div id="appBody">
+      <div id="appBodyContent">
+        <div id="thumbnail">
+          <!-- <img src="image/thumbnail.jpg"> -->
+        </div>
+      
+      <!-- fim da thumbnail -->
+      <div id="contentList">
+        <div id="name">Filme</div>
+        <!-- informações -->
+        <div id="appBodyInfo">
+          <button type="button" class="tab-head-single active-tab" data-id="1"></button>
+          <span>Informações</span>
+        </div>
+        <div id="infoBody">
+
+          <ul>
+            <li>
+              <div>
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Nome do filme</span>
+              </div>
+              <span></span>
+            </li>
+            <li>
+              <div>
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Genero</span>
+              </div>
+              <span></span>
+            </li>
+            <li>
+              <div>
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Descrição</span>
+              </div>
+              <SPan></SPan>
+            </li>
+          </ul>
+        </div>
+      </div>
+     </div>
+   </div>
+
+ </div>
+  <!--  <h1>Encontre Filmes por Gênero</h1>
   <label for="movieInput">Digite o gênero do filme:</label>
   <input type="text" id="movieInput" placeholder="Digite o gênero">
   <button type="button" onclick="searchMovies()">Buscar</button>
-
-  <ul id="movieList"></ul>
+<ul id="movieList"></ul> -->
 
   
+
+<script src="js/teste.js"></script>
 </body>
-</html>
 
 </html>
+
