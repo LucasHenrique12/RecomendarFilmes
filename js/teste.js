@@ -153,7 +153,7 @@ function searchgenres(genreId) {
             return 'Romance';
         case 10752:
             return 'Guerra';
-        default:
-            return 'N/A';
+        // default:
+        //     return 'N/A';
     }
 }

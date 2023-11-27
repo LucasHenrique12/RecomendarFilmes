@@ -22,8 +22,8 @@ body{
   font-size: 1.7rem;
   min-height: 100vh;
   background: var(--red-color);
-  background: -o-linear-gradient(281deg, #f64445 0%, #611cac 100%);
-  background: linear-gradient(169deg, #f64445 0%,#611cac 100%);
+  background: -o-linear-gradient(281deg, rgb(48, 130, 163) 0%, #7c57a4 100%);
+  background: linear-gradient(169deg, rgb(48, 130, 163) 0%,#621eab 100%);
   line-height: 1.6;
   font-family: var(--poppins-font);
   display:flex;
@@ -229,8 +229,10 @@ margin-right: 2rem;
   margin-right: auto; /* Centraliza o bloco */
   box-sizing: border-box;
 }
-
-#contentList .name {
+#info{
+  
+}
+#contentList #name {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 3.4rem;
@@ -242,7 +244,7 @@ margin-right: 2rem;
 }
 
 
-#contentList .name{
+#contentList #name{
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 3.4rem;
@@ -295,7 +297,7 @@ box-shadow: 0 5px 7px rgba(0, 0, 0, 0.5);
 }
 
 @media screen and(max-width: 1000px) {
-  #contentList .name{
+  #contentList #name{
     text-align: center;
     margin-top: 1.8rem;
   }
