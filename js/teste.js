@@ -15,7 +15,7 @@ searchForm.addEventListener('submit', getInputValue);
 const apiKey = '32c07956aa06ecee35ca79f10d439001';
 
 const fetchAllMovies = async (searchText) => {
-    let url = `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=${apiKey}&language=pt-BR`;
+    let url = `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=${apiKey}&language=pt-BR&`;
     
     try {
         const response = await fetch(url);
@@ -24,6 +24,7 @@ const fetchAllMovies = async (searchText) => {
         if (allData.results && allData.results.length > 0) {
             showSearchList(allData.results);
         } else {
+            showErrorMessage('Nenhum resultado encontrado.Busca não computavél');
             console.log('Nenhum resultado encontrado.');
         }
     } catch (error) {
@@ -42,7 +43,7 @@ const showSearchList = (data) => {
             const posterPath = `https://image.tmdb.org/t/p/w500${dataItem.poster_path}`;
             
             divElem.innerHTML = `
-                <img src="${posterPath}" alt="${dataItem.title}">
+                <img src="${posterPath}">
                 <p data-id="${dataItem.id}">${dataItem.title}</p>
             `;
             
@@ -50,6 +51,11 @@ const showSearchList = (data) => {
         }
     });
 }
+
+const showErrorMessage = (message) => {
+    searchList.innerHTML = `<div class="search-list-item error">${message}</div>`;
+};
+
 
 searchForm.search.addEventListener('keyup', () => {
     if(searchForm.search.value.length > 1){
