@@ -1,7 +1,6 @@
 const searchForm = document.querySelector('.forms');
 let searchList = document.getElementById('list');
 
-let activeTab = 1, allData;
 
 const getInputValue = async (event) => {
     event.preventDefault();
@@ -19,7 +18,7 @@ const fetchAllMovies = async (searchText) => {
     
     try {
         const response = await fetch(url);
-        allData = await response.json();
+       let allData = await response.json();
 
         if (allData.results && allData.results.length > 0) {
             showSearchList(allData.results);
