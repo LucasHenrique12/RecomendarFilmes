@@ -1,6 +1,10 @@
 const searchForm = document.querySelector('.forms');
 let searchList = document.getElementById('list');
-
+let allData;
+const movieNameColor = document.querySelector("#titleColor");
+movieNameColor.style.color = "pink";
+ let colorIndex = 0; 
+changeNameColor(colorIndex);
 
 const getInputValue = async (event) => {
     event.preventDefault();
@@ -18,12 +22,12 @@ const fetchAllMovies = async (searchText) => {
     
     try {
         const response = await fetch(url);
-       let allData = await response.json();
+        allData = await response.json();
 
         if (allData.results && allData.results.length > 0) {
             showSearchList(allData.results);
         } else {
-            showErrorMessage('Nenhum resultado encontrado.Busca não computavél');
+            showErrorMessage('Nenhum resultado encontrado.Busca não computável');
             console.log('Nenhum resultado encontrado.');
         }
     } catch (error) {
@@ -66,6 +70,7 @@ searchForm.search.addEventListener('keyup', () => {
 
 searchList.addEventListener('click', (event) => {
     let searchId = event.target.dataset.id;
+    
     let singleData = allData.results.find(singleData => searchId === String(singleData.id));
 
     if (singleData) {
@@ -74,6 +79,33 @@ searchList.addEventListener('click', (event) => {
     }
 });
 
+
+
+
+
+function changeNameColor(colorIndex) {
+    movieNameColor.addEventListener('mouseover', (event) => {
+       
+        const colors = ["purple", "pink", "blue"];
+
+        movieNameColor.style.color = colors[colorIndex];
+
+        colorIndex = (colorIndex + 1);
+        console.log(colorIndex);
+        if(colorIndex>2){
+             colorIndex=0;
+            changeNameColor(colorIndex);
+        }
+        
+    });
+}
+
+
+
+
+
+
+changeNameColor();
 const showMovieDetails = (data) => {
     if (!data) {
         console.error('Nenhum dado do filme disponível.');
@@ -94,7 +126,6 @@ const showMovieDetails = (data) => {
 
     const infoBodyElement = document.getElementById('infoBody');
     if (infoBodyElement) {
-        // Obtém os nomes dos gêneros usando a função searchgenres
         const genreNames = data.genre_ids ? data.genre_ids.map(genreId => searchgenres(genreId)) : [];
 
         infoBodyElement.innerHTML = `

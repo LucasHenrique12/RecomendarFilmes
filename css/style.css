@@ -69,9 +69,6 @@ margin: 0 auto;
   justify-content: space-between;
 }
 
-#appTitle span{
-  color: var(--red-color);
-}
 .forms{
   border: 2px solid var(--grey-color);
   border-radius: 3rem;
@@ -370,31 +367,6 @@ box-shadow: 0 5px 7px rgba(0, 0, 0, 0.5);
   display: none;  /* Oculta os itens sem miniatura */
 }
 
-/* OLD */
-
-/* body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 20px;
-  background: #1c2841;
+#titleColor {
+  color: red;
 }
-
-#movieInput {
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 1.5em;
- 
-}
-
-#movieList {
-  list-style: none;
-  padding: 0;
-}
-
-#movieList li {
-  margin: 10px;
-}
-
-div{
-  border: 1px solid black;
-} */
