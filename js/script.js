@@ -54,7 +54,6 @@ const showSearchList = (data) => {
         }
     });
 }
-
 const showErrorMessage = (message) => {
     searchList.innerHTML = `<div class="search-list-item error">${message}</div>`;
 };
